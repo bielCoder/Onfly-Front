@@ -1,0 +1,251 @@
+
+/* 
+.background-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://capricho.abril.com.br/wp-content/uploads/2017/01/avic3a3o.gif') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  background-blend-mode: color;
+  background-color: #000000cc;
+  display: flex;
+  align-items: center;
+} */
+
+
+.background-image {
+    width: 100%;
+    height: 100vh;
+    background-color: #0000007a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../../assets/videos/logo-main.mp4') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    background-blend-mode: color;
+    background-color: #00000080;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+video {
+  
+    background-blend-mode: color;
+    background-color: #00000080;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.login-container {
+    position: absolute;
+    z-index: 1;
+    margin: 100px auto;
+    padding: 50px;
+    background: #00a0fd48;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.input-container {
+    display: flex;
+    gap: .5em;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin: -4px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+
+h2 {
+    color: #fff;
+    letter-spacing: 3px;
+}
+
+
+
+.input-control {
+    width: 100%;
+    height: 33px;
+    border-radius: .5em;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.input-control-btn {
+    height: 31px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: .5em;
+    color: #fff;
+}
+
+
+
+.input-control::placeholder {
+    color: #fff;
+    /* padding-left: em; */
+}
+
+.btn {
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+
+label {
+  position: absolute;
+  margin-left: 0.5em;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 0.89em;
+  cursor: text;
+  transition: 0.3s ease-in-out;
+  padding-left: .6em;
+  padding-right: .6em;
+  animation: .5s all ease-in-out;
+}
+
+input.email:focus ~ label {
+    margin-top: -.6em;
+    background-color: #2f5e79;
+    font-size: .75em;
+    animation: .5s all ease-in-out;
+}
+
+input.email:not(:placeholder-shown) ~ label {
+    margin-top: -.6em;
+    background-color: #2f5e79;
+    font-size: .75em;
+    padding-left: .6em;
+    padding-right: .6em;
+    animation: .5s all ease-in-out;
+
+}
+
+input.password {
+    margin-top: .5em;
+   
+
+}
+
+input.password ~ label {
+    margin-top: 1em;
+    animation: .5s all ease-in-out;
+
+}
+
+input.password:focus ~ label {
+    margin-top: 0em;
+    background-color: #2f5e79;
+    font-size: .75em;
+    animation: .5s all ease-in-out;
+
+}
+
+input.password:not(:placeholder-shown) ~ label {
+    margin-top: 0em;
+    background-color: #2f5e79;
+    font-size: .75em;
+    padding-left: .6em;
+    padding-right: .6em;
+    animation: .5s all ease-in-out;
+
+}
+
+
+/* input.email:focus ~ label,
+input.email:not(:placeholder-shown):focus ~ label {
+  margin-top: -18px; 
+  font-size: 0.75em;
+}
+
+input.password:focus ~ label,
+input.password:not(:placeholder-shown):focus ~ label {
+  margin-top: -18px; 
+  font-size: 0.75em;
+}
+
+input.email:focus,
+input.password:focus {
+  border-color: #00aaff;
+} */
+
+
+input[type="submit"] {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 34px;
+    width: 102%;
+    cursor: pointer;
+    margin-top: 3em;
+}
+
+input[type="submit"]:hover {
+    opacity: 85%;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2em;
+} 
+
+.footer .text-footer {
+    color: #ffffff;
+    font-size: .89em;
+}
+
+
+.email:focus ~  {
+    
+}
+
+
+@media (max-width: 768px) {
+    
+}
