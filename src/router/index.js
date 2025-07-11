@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginComponent from '../components/login.component/LoginComponent.vue';
-import Dashboard from '../components/Dashboard.vue';  // crie esse componente
+import DashboardComponent from '../components/dashboard.component/DashboardComponent.vue';
 
 const routes = [
   {
@@ -11,13 +11,25 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: Dashboard,
+    component: DashboardComponent,
+    meta: { requiresAuth: true } //  proteção ativada
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+//  Proteção de rota
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = !!sessionStorage.getItem('auth');
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/'); // redireciona para login se não tiver token
+  } else {
+    next(); // segue normalmente
+  }
 });
 
 export default router;

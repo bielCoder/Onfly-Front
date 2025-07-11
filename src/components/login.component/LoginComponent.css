@@ -70,7 +70,6 @@ video {
 
 .input-container {
     display: flex;
-    gap: .5em;
     flex-direction: column;
     align-items: center;
     width: 400px;
@@ -128,24 +127,25 @@ h2 {
     position: relative;
     width: 100%;
     display: flex;
+    margin:0;
 }
 
 
 label {
-  position: absolute;
-  margin-left: 0.5em;
-  margin-top: 8px;
-  color: #fff;
-  font-size: 0.89em;
-  cursor: text;
-  transition: 0.3s ease-in-out;
-  padding-left: .6em;
-  padding-right: .6em;
-  animation: .5s all ease-in-out;
+    position: absolute;
+    margin-left: 0.5em;
+    margin-top: 5px;
+    color: #fff;
+    font-size: 0.89em;
+    cursor: text;
+    transition: 0.3s ease-in-out;
+    padding-left: .6em;
+    padding-right: .6em;
+    animation: .5s all ease-in-out;
 }
 
 input.email:focus ~ label {
-    margin-top: -.6em;
+    margin-top: -.7em;
     background-color: #2f5e79;
     font-size: .75em;
     animation: .5s all ease-in-out;
@@ -219,7 +219,7 @@ input[type="submit"] {
     height: 34px;
     width: 102%;
     cursor: pointer;
-    margin-top: 3em;
+    margin-top: 2em;
 }
 
 input[type="submit"]:hover {
@@ -240,12 +240,23 @@ input[type="submit"]:hover {
     font-size: .89em;
 }
 
-
-.email:focus ~  {
-    
+.container-separate {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .8em;
 }
 
 
-@media (max-width: 768px) {
-    
+.input-container a {
+    color: #fff;
+    text-decoration: underline; 
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.input-container a:hover {
+    color: #fff;
+    text-decoration: underline;
+    opacity: 85%;
 }
