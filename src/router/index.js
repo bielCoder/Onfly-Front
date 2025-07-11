@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginComponent from '../components/login.component/LoginComponent.vue';
 import DashboardComponent from '../components/dashboard.component/DashboardComponent.vue';
+import RegisterComponent from '../components/register.component/RegisterComponent.vue';
+import TokenComponent from '../components/token.component/TokenComponent.vue';
 
 const routes = [
   {
@@ -13,6 +15,16 @@ const routes = [
     name: 'Dashboard',
     component: DashboardComponent,
     meta: { requiresAuth: true } //  proteção ativada
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterComponent,
+  },
+  {
+    path: '/token',
+    name: 'Token',
+    component: TokenComponent,
   },
 ];
 

@@ -2,31 +2,37 @@ import axios from '../../services/api';
 
 
 export default {
-  name: 'LoginComponent',
+  name: 'RegisterComponent',
   data() {
  
-
+   
+    window.history.replaceState({}, '', '/');
+    
     return {
+      name: '',
       email: '',
       password: '',
+      confirm: '',
       date: new Date().getFullYear(),
       object: [],
-      token:'',
-      loginView: true
+      token: ''
     };
   },
+ 
   methods: {
-   async login() {
+   async Register() {
+
+      if(this.password !== this.confirm)
+      {
+          return 
+      }
+
       try {
-
-        if(!this.email || !this.password)
-        {
-          return
-        }
-
-        const response = await axios.post('/auth/login', {
+        const response = await axios.post('/auth/register', {
+          name: this.name,
           email: this.email,
           password: this.password,
+          access: 3
         });
 
         this.object = response.data;
@@ -34,19 +40,14 @@ export default {
         sessionStorage.setItem("auth", this.token);
 
         if (this.token) {
-          this.$router.push('/dashboard');
+          this.$router.push('/token');
         }
+     
 
       } catch (error) {
         console.error("Erro no login:", error);
       }
-    },
-
-    register() {
-      this.loginView = false;
-      this.$router.push('/register');
-    }
-
+  }
 
   },
 };

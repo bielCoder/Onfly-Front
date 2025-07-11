@@ -1,13 +1,16 @@
-<style lang="" src="./LoginComponent.css"></style>
+<style lang="" src="./RegisterComponent.css"></style>
   <template>
     <div class="background-image" >
-       <div class="login-container" v-if="loginView">
-        <h2>OnFly</h2>
-        <span class="slug">Viajar de avião não precisa ser um empecilho para o desenvolvimento dos seus negócios.</span>
-
-        <form @submit.prevent="login">
+       <div class="login-container">
+        <h2>Registro</h2>
+        <form @submit.prevent="Register">
           <div class="input-container" >
               <div class="container-separate">
+                <div class="form-group">
+                  <input class="input-control name" v-model="name" name="name" id="name" type="text" placeholder=" " autocomplete="off" required />
+                  <label for="name" class="name-label">Nome</label>
+                </div>
+
                 <div class="form-group">
                   <input class="input-control email" v-model="email" name="email" id="email" type="email" placeholder=" " autocomplete="off" required />
                   <label for="email" class="email-label">E-mail</label>
@@ -17,16 +20,21 @@
                   <input class="input-control password" v-model="password" name="password" id="password" placeholder=" " type="password" required />
                   <label for="password" class="password-label">Senha</label>
                 </div>
+
+                 <div class="form-group">
+                  <input class="input-control password" v-model="confirm" name="confirm" id="confirm" placeholder=" " type="password" required />
+                  <label for="confirm" class="password-label">Confirmar Senha</label>
+                </div>
               </div>
 
               <div class="form-group">
-                <input type="submit" value="Acessar" />
+                <input type="submit" value="Registrar" />
               </div>
               <div class="container-organize-registre">
-                <span>Ainda não possui conta?</span>&nbsp;<router-link to="/register"><b>Cadastrar-se</b></router-link>
+                <span>Já possui cadastro?</span>&nbsp;<b><router-link to="/">Login</router-link></b>
               </div>
 
-              <a><b>Esqueci a minha senha</b></a>
+       
           </div>
 
 
@@ -42,4 +50,4 @@
       
     </div>
   </template>
-<script src="./LoginComponent.ts"></script>
+<script src="./RegisterComponent.ts"></script>

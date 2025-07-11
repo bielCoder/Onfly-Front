@@ -2,14 +2,18 @@
 import api from './api';
 
 export default {
-  login(email, password) {
+
+  register(name,email,password,access)
+  {
+    return api.post('/auth/register',{name,email,password,access})
+  },
+  login(email, password)
+  {
     return api.post('/auth/login', { email, password });
   },
-
   logout() {
     return api.post('/auth/logout');
   },
-
   getUserProfile() {
     return api.get('/auth/me');
   },
