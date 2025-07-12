@@ -1,8 +1,9 @@
-// import axios from '../../services/api';
+import axios from '../../services/api';
 
 export default {
   name: 'TokenComponent',
   data() {
+     window.history.replaceState({}, '', '/');
     return {
       email: '',
       password: '',
@@ -15,9 +16,27 @@ export default {
     };
   },
   methods: {
-    async getToken() {
-        const token = this.codes.join('');
-        console.log(token); // "165106"
+    async submit() {
+        this.token = await this.codes.join('');
+         const { name, email, password, access } = this.$route.query;
+           await axios.post('/auth/check', {
+            name: name,
+            email: email,
+            password:password,
+            access: access
+          }).then((response)=>{
+                this.object = response.data;
+                this.token = this.object.auth.data.token;
+                sessionStorage.setItem("auth", this.token);
+
+            if (this.token) {
+              this.$router.push('/dashboard');
+            } else {
+              this.$router.push('/');
+            }
+          }).then((data)=>{
+              console.log(data)
+          });
     },
 
     register() {

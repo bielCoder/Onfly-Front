@@ -5,7 +5,7 @@
         <h2>Autenticador</h2>
        
 
-        <form @submit.prevent="getToken">
+        <form @submit.prevent="submit">
           <div class="input-container" >
               <div class="container-separate">
                 <div class="otp-container" >

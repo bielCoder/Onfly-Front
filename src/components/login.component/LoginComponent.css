@@ -151,8 +151,6 @@ input.email:not(:placeholder-shown) ~ label {
 
 input.password {
     margin-top: .5em;
-   
-
 }
 
 input.password ~ label {

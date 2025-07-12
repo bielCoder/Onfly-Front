@@ -82,3 +82,7 @@ input.no-spinner::-webkit-outer-spin-button {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.bi-box-arrow-left {
+  margin-right: .5em;
+}

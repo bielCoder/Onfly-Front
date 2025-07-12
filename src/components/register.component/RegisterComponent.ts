@@ -36,12 +36,21 @@ export default {
         });
 
         this.object = response.data;
-        this.token = this.object.auth.data.token;
-        sessionStorage.setItem("auth", this.token);
+     
+        this.token = this.object.token.data;
+  
 
         if (this.token) {
-          this.$router.push('/token');
-        }
+          this.$router.push({
+          path: '/token',
+          query: {
+            name: this.name,
+            email: this.email,
+            password: this.password,
+            access: 3
+          }
+          });
+      }
      
 
       } catch (error) {
