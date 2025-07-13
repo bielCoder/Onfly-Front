@@ -13,9 +13,15 @@ export default {
 </script>
 
 <style>
+html, body {
+    overflow-x: hidden;
+}
 * {
   margin: 0;
   padding: 0;
   font-family: 'Verdana';
+  box-sizing: border-box;
 }
+
+
 </style>
