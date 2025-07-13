@@ -265,6 +265,7 @@ span {
     text-align: center;
     font-size: .89em;
     font-style: italic;
+    margin-top: -8em;
 }
 
 .forgot-password {
@@ -276,13 +277,19 @@ p {
     padding: 0;
 }
 
+   .slug {
+        position: relative;
+        top: 2em;
+        margin-top: 0em;
+        margin-bottom: 1em;
+    }
 
 @media screen and (max-width: 767px) {
     .login-container {
         display: flex;
         flex-direction: column; /* garante alinhamento vertical */
         align-items: center;    /* alinha filhos ao centro */
-        height: 650px;
+        height: 680px;
     }
 
     .login-container .form-group {
@@ -294,20 +301,22 @@ p {
         width: 50%;
         margin: 0 auto; /* Centraliza horizontalmente */
         display: block; /* Garante comportamento de bloco */
-        margin-top: 1.2em;
+        margin-top: 1em;
         margin-bottom:1em;
     }
 
     .login-container .input-control {
         margin: 0 auto;
         width: 50%;
-        margin-top: .7em;
+        margin-top: 0em;
      
     }
 
+  
+
     .login-container .email-label  {
         left: 7em;
-        top: .8em;
+        top: .3em;
     }
 
     .login-container .password-label  {
@@ -327,7 +336,10 @@ p {
     }
 
     .slug {
-        margin-top: 2em;
+        position: relative;
+        top: 2em;
+        margin-top: 5em;
+        margin-bottom: 1em;
     }
 
 
@@ -351,5 +363,6 @@ p {
         margin-top: -3em;
     }
 
+ 
    
 }
