@@ -145,11 +145,11 @@ label {
 }
 
 .email-label {
-    margin-top: 7px;
+    margin-top: 5px;
 }
 
 .name-label {
-    margin-top: 7px;
+    margin-top: 5px;
 }
 
 input.email:focus ~ label {
@@ -175,9 +175,8 @@ input.password {
 
 
 input.password ~ label {
-    margin-top: .6em;
+    margin-top: 5px;
     animation: .5s all ease-in-out;
-
 }
 
 input.password:focus ~ label {
@@ -240,8 +239,9 @@ input[type="submit"]:hover {
     bottom: 0px;
     display: flex;
     justify-content: center;
-    padding-bottom: 2em;
-} 
+    align-items: center;
+    margin-bottom: 1em;
+}
 
 .footer .text-footer {
     color: #ffffff;

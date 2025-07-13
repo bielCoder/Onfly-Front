@@ -1,10 +1,14 @@
 <template>
   <router-view />
+    <LoadingComponent />
 </template>
 
 <script>
+import LoadingComponent from './components/utilities/loading.component/LoadingComponent.vue';
+
 export default {
   name: 'App',
+  components: {LoadingComponent}
 };
 </script>
 

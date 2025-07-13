@@ -26,7 +26,7 @@
                 <span>Ainda não possui conta?</span>&nbsp;<router-link to="/register"><b>Cadastrar-se</b></router-link>
               </div>
 
-              <a><b>Esqueci a minha senha</b></a>
+              <a class="forgot-password"><b>Esqueci a minha senha</b></a>
           </div>
 
 
