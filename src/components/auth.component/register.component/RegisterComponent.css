@@ -4,7 +4,7 @@
 
 input.name:focus ~ label {
     margin-top: -.7em;
-    background-color: #282e32;
+    background-color: #2c5c79;
     font-size: .75em;
     animation: .5s all ease-in-out;
     margin-left: 5px;
@@ -12,9 +12,26 @@ input.name:focus ~ label {
 
 input.name:not(:placeholder-shown) ~ label {
     margin-top: -.7em;
-    background-color: #282e32;
+    background-color: #2c5c79;
     font-size: .75em;
     animation: .5s all ease-in-out;
     margin-left: 5px;
 
+}
+
+input.password:focus ~ label {
+    margin-top: -.7em;
+    background-color: #2e5e7b;
+    font-size: .75em;
+    animation: .5s all ease-in-out;
+}
+
+
+input.password:not(:placeholder-shown) ~ label {
+    margin-top: -.7em;
+    background-color: #2e5e7b;
+    font-size: .75em;
+    padding-left: .6em;
+    padding-right: .6em;
+    animation: .5s all ease-in-out;
 }
