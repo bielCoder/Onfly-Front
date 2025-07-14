@@ -1,0 +1,20 @@
+.name-label {
+    margin-top: 5px;
+}
+
+input.name:focus ~ label {
+    margin-top: -.7em;
+    background-color: #282e32;
+    font-size: .75em;
+    animation: .5s all ease-in-out;
+    margin-left: 5px;
+}
+
+input.name:not(:placeholder-shown) ~ label {
+    margin-top: -.7em;
+    background-color: #282e32;
+    font-size: .75em;
+    animation: .5s all ease-in-out;
+    margin-left: 5px;
+
+}
