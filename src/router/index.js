@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LoginComponent from '../components/login.component/LoginComponent.vue';
-import DashboardComponent from '../components/dashboard.component/DashboardComponent.vue';
-import RegisterComponent from '../components/register.component/RegisterComponent.vue';
-import TokenComponent from '../components/token.component/TokenComponent.vue';
+import LoginComponent from '../components/auth.component/login.component/LoginComponent.vue';
+import DashboardComponent from '../components/auth.component/dashboard.component/DashboardComponent.vue';
+import RegisterComponent from '../components/auth.component/register.component/RegisterComponent.vue';
+import TokenComponent from '../components/auth.component/token.component/TokenComponent.vue';
+import ForgotPasswordComponent from '@/components/auth.component/forgot-password.component/ForgotPasswordComponent';
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/token',
     name: 'Token',
     component: TokenComponent,
+  },
+  {
+    path: '/forgot-password',
+    name: 'Recovery',
+    component: ForgotPasswordComponent,
   },
 ];
 
