@@ -4,6 +4,7 @@ import DashboardComponent from '../components/auth.component/dashboard.component
 import RegisterComponent from '../components/auth.component/register.component/RegisterComponent.vue';
 import TokenComponent from '../components/auth.component/token.component/TokenComponent.vue';
 import ForgotPasswordComponent from '@/components/auth.component/forgot-password.component/ForgotPasswordComponent';
+import RecoveryComponent from '@/components/auth.component/recovery.component/RecoveryComponent.vue';
 
 const routes = [
   {
@@ -29,9 +30,17 @@ const routes = [
   },
   {
     path: '/forgot-password',
-    name: 'Recovery',
+    name: 'Recovery', 
     component: ForgotPasswordComponent,
   },
+  {
+    path: '/recovery/:email',
+    name: 'RecoveryForm',
+    component: RecoveryComponent,
+    props: true 
+  }
+
+  
 ];
 
 const router = createRouter({

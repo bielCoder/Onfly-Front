@@ -29,7 +29,12 @@
                 <input type="submit" value="Validar Token">
               </div>
 
-             <p class="back-page"><i class="bi bi-box-arrow-left"></i>&nbsp;Voltar para a página de login</p>
+            <router-link to="/">
+              <p class="back-page">
+                <i class="bi bi-box-arrow-left"></i>
+                &nbsp;Voltar para a página de login
+              </p>
+            </router-link>
 
           </div>
 

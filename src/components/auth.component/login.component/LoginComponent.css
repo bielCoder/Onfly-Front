@@ -223,10 +223,19 @@ input.password:not(:placeholder-shown):focus ~ label {
   font-size: 0.75em;
 }
 
+
+
 input.email:focus,
 input.password:focus {
   border-color: #00aaff;
 } */
+
+input.password:focus ~ label {
+    margin-top: -0.7em;
+    background-color: #2e5e7b;
+    font-size: .75em;
+    animation: .5s all ease-in-out;
+}
 
 
 input[type="submit"] {

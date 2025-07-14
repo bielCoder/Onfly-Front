@@ -1,10 +1,9 @@
 import axios from '../../../services/api';
-
+import ErrorComponent from '../../utilities/error.component/ErrorComponent.vue';
 
 export default {
   name: 'LoginComponent',
   data() {
- 
     window.history.replaceState({}, '', '/');
 
     return {
@@ -12,17 +11,17 @@ export default {
       password: '',
       date: new Date().getFullYear(),
       object: [],
-      token:'',
-      loginView: true
+      token: '',
+      loginView: true,
+      error: '' // Erro local, não é prop!
     };
   },
   methods: {
-   async login() {
+    async login() {
       try {
-
-        if(!this.email || !this.password)
-        {
-          return
+        if (!this.email || !this.password) {
+          this.error = 'Preencha e-mail e senha!';
+          return;
         }
 
         const response = await axios.post('/auth/login', {
@@ -35,11 +34,13 @@ export default {
         sessionStorage.setItem("auth", this.token);
 
         if (this.token) {
+          this.error = '' 
           this.$router.push('/dashboard');
         }
 
       } catch (error) {
-        console.error("Erro no login:", error);
+        this.object = error.response.data;
+        this.error = this.object.auth.message; // Passa o erro para a view
       }
     },
 
@@ -48,11 +49,10 @@ export default {
       this.$router.push('/register');
     },
 
-    forgotPassword()
-    {
+    forgotPassword() {
       this.loginView = false;
       this.$router.push('/forgot-password');
-    } 
-
+    }
   },
+  components: { ErrorComponent }
 };

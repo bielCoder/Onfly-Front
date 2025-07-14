@@ -12,7 +12,6 @@
                   <input class="input-control email" v-model="email" name="email" id="email" type="email" placeholder=" " autocomplete="off" required />
                   <label for="email" class="email-label">E-mail</label>
                   <i class="bi bi-envelope-at-fill"></i>
-
                 </div>
 
                 <div class="form-group">
@@ -20,6 +19,7 @@
                   <label for="password" class="password-label">Senha</label>
                   <i class="bi bi-key-fill"></i>
                 </div>
+                <ErrorComponent v-if="error"  :error="error"/>
               </div>
 
               <div class="form-group">

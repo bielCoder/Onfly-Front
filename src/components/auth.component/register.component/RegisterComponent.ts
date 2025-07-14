@@ -15,7 +15,8 @@ export default {
       confirm: '',
       date: new Date().getFullYear(),
       object: [],
-      token: ''
+      token: '',
+      getToken:''
     };
   },
  
@@ -38,8 +39,8 @@ export default {
         this.object = response.data;
      
         this.token = this.object.token.data;
-  
-
+        this.getToken = this.object.token.token
+       
         if (this.token) {
           this.$router.push({
           path: '/token',
@@ -47,7 +48,8 @@ export default {
             name: this.name,
             email: this.email,
             password: this.password,
-            access: 3
+            access: 3,
+            token: this.getToken
           }
           });
       }

@@ -18,25 +18,33 @@ export default {
   methods: {
     async submit() {
         this.token = await this.codes.join('');
-         const { name, email, password, access } = this.$route.query;
+         const { name, email, password, access, token } = this.$route.query;
            await axios.post('/auth/check', {
             name: name,
             email: email,
             password:password,
-            access: access
+            access: access,
+            token: token
           }).then((response)=>{
-                this.object = response.data;
-                this.token = this.object.auth.data.token;
-                sessionStorage.setItem("auth", this.token);
+                return response.data;
+              
 
-            if (this.token) {
-              this.$router.push('/dashboard');
-            } else {
-              this.$router.push('/');
-            }
+        
           }).then((data)=>{
-              console.log(data)
-          });
+           
+                this.object = data;
+                this.token = this.object.auth.data.token;
+                
+                sessionStorage.setItem("auth", this.token);
+                if (this.token) {
+                  this.$router.push('/dashboard');
+                } else {
+                  this.$router.push('/');
+                }
+
+          }).catch((erro) => {
+              console.log(erro)
+          }); 
     },
 
     register() {

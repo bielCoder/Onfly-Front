@@ -1,0 +1,11 @@
+.alert-danger {
+    height: 1vh;
+    margin: 0;
+    font-size: .80em;
+    justify-content: center;
+}
+
+
+.alert-danger div {
+    text-align: center;
+}

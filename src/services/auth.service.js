@@ -17,4 +17,8 @@ export default {
   getUserProfile() {
     return api.get('/auth/me');
   },
+  checkToken(name,email,password,access,token)
+  {
+    return api.post('/auth/check', { name,email,password,access,token});
+  }
 };
