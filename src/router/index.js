@@ -3,11 +3,13 @@ import LoginComponent from '../components/auth.component/login.component/LoginCo
 import RegisterComponent from '../components/auth.component/register.component/RegisterComponent.vue';
 import DashboardComponent from '../components/auth.component/dashboard.component/DashboardComponent.vue';
 import ForgotPasswordComponent from '../components/auth.component/forgot-password.component/ForgotPasswordComponent.vue';
+import TokenComponent from '@/components/auth.component/token.component/TokenComponent';
 
 const routes = [
   { path: '/', name: 'Login', component: LoginComponent },
   { path: '/register', name: 'Register', component: RegisterComponent },
   { path: '/dashboard', name: 'Dashboard', component: DashboardComponent },
+  { path: '/token', name: 'Token', component: TokenComponent },
   { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPasswordComponent }
 ];
 

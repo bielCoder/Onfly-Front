@@ -1,88 +1,99 @@
 import axios from '../../../services/api';
+import * as yup from 'yup';
+import ErrorComponent from '../../utilities/error.component/ErrorComponent.vue';
+
+// Validação do token: deve ter 6 dígitos
+const schema = yup.object({
+  token: yup.string().length(6, 'O token deve ter 6 dígitos').required('Token é obrigatório'),
+});
 
 export default {
   name: 'TokenComponent',
+  components: { ErrorComponent },
+
   data() {
-     window.history.replaceState({}, '', '/');
+    window.history.replaceState({}, '', '/');
+
     return {
-      email: '',
-      password: '',
       date: new Date().getFullYear(),
       object: [],
       token: '',
-      loginView: true,
-      otp: ['', '', '', '', '', ''], // ✅ ADICIONADO
-      codes: Array(6).fill('')
+      codes: Array(6).fill(''),
+      error: '',
+      touched: [false, false, false, false, false, false],
     };
   },
+
   methods: {
+    handleBlur(index) {
+      this.touched[index] = true;
+      const joinedToken = this.codes.join('');
+
+      schema.validate({ token: joinedToken })
+        .then(() => {
+          this.error = '';
+        })
+        .catch(err => {
+          this.error = err.message;
+        });
+    },
+
     async submit() {
-        this.token = await this.codes.join('');
-         const { name, email, password, access, token } = this.$route.query;
-           await axios.post('/auth/check', {
-            name: name,
-            email: email,
-            password:password,
-            access: access,
-            token: token
-          }).then((response)=>{
-                return response.data;
-              
+      const joinedToken = this.codes.join('');
 
-        
-          }).then((data)=>{
-           
-                this.object = data;
-                this.token = this.object.auth.data.token;
-                
-                sessionStorage.setItem("auth", this.token);
-                if (this.token) {
-                  this.$router.push('/dashboard');
-                } else {
-                  this.$router.push('/');
-                }
+      try {
+        await schema.validate({ token: joinedToken });
 
-          }).catch((erro) => {
-              console.log(erro)
-          }); 
+        const { name, email, password, access, token } = this.$route.query;
+
+        const response = await axios.post('/auth/check', {
+          name,
+          email,
+          password,
+          access,
+          token: token,
+          code: joinedToken
+        });
+
+        this.object = response.data;
+        this.token = this.object.auth.data.token;
+
+        sessionStorage.setItem("auth", this.token);
+
+        if (this.token) {
+          this.$router.push('/dashboard');
+        } else {
+          this.$router.push('/');
+        }
+
+      } catch (error) {
+        if (error.name === 'ValidationError') {
+          this.error = error.message;
+          return;
+        }
+
+        if (error.response && error.response.data) {
+          this.error = error.response.data.message || 'Token inválido ou expirado.';
+        } else {
+          this.error = 'Erro de conexão com o servidor.';
+        }
+      }
     },
 
-    register() {
-      this.loginView = false;
-      this.$router.push('/register');
-    },
-
-    onInput(index, event) {
-      const value = event.target.value;
-      if (/^[0-9]$/.test(value)) {
-        this.otp[index] = value;
-
-        // move para o próximo input
-        const nextInput = this.$refs.otpInputs[index + 1];
+    changeInput(index) {
+      // Move automaticamente para o próximo input
+      if (this.codes[index].length === 1) {
+        const nextInput = this.$refs.inputs[index + 1];
         if (nextInput) {
           nextInput.focus();
         }
-      } else {
-        this.otp[index] = '';
       }
     },
 
-   changeInput(index) {
-      // Verifica se há um próximo input e foca nele
-      const nextInput = this.$refs.inputs[index + 1];
-      if (nextInput) {
-        nextInput.focus();
-      }
-  },
-  
- 
-
-   handleBackspace(event, index) {
+    handleBackspace(event, index) {
       if (event.key === 'Backspace') {
-        // Apaga o campo atual
         this.codes[index] = '';
 
-        // Vai para o campo anterior
         const prevInput = this.$refs.inputs[index - 1];
         if (prevInput) {
           this.$nextTick(() => {
@@ -90,29 +101,14 @@ export default {
           });
         }
 
-        // Impede o comportamento padrão (como mover o cursor)
         event.preventDefault();
       }
     },
 
     allowOnlyDigits(event) {
-        const key = event.key;
-        if (!/^\d$/.test(key)) {
-          event.preventDefault();
-        }
-    },
-
-    onArrowKey(index, direction) {
-      const nextInput = this.$refs.otpInputs[index + direction];
-      if (nextInput) {
-        nextInput.focus();
-      }
-    },
-
-    handlePaste(event) {
-      const pasteData = event.clipboardData.getData('text').replace(/\D/g, '');
-      for (let i = 0; i < pasteData.length && i < this.otp.length; i++) {
-        this.otp[i] = pasteData[i];
+      const key = event.key;
+      if (!/^\d$/.test(key)) {
+        event.preventDefault();
       }
     }
   }

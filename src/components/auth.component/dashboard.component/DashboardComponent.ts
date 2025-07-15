@@ -6,6 +6,7 @@ export default {
   name: 'DashboardComponent',
   data() {
  
+    window.history.replaceState({}, '', '/dashboard');
 
     return {
       email: '',

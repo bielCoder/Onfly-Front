@@ -50,6 +50,7 @@
               <i class="bi bi-key-fill"></i>
             </div>
               <ErrorComponent v-if="touched.confirm && errors.confirm" :error="errors.confirm" />
+              <ErrorComponent v-if="error" :error="error" />
 
           </div>
 
@@ -57,7 +58,6 @@
             <input type="submit" value="Registrar" />
           </div>
 
-          <ErrorComponent v-if="error" :error="error" />
 
           <div class="container-organize-registre">
             <span>Já possui cadastro?</span>&nbsp;<b><router-link to="/">Login</router-link></b>
