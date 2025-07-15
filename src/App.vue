@@ -37,13 +37,13 @@ html, body {
 
 /* Parte que se move (thumb) */
 ::-webkit-scrollbar-thumb {
-    background: #1449c3e6; /* Cor da "bolinha" do scroll */
+    background: #1E90FF; /* Cor da "bolinha" do scroll */
     border-radius: 0px 4px 4px 0px;
 }
 
 /* Ao passar o mouse no thumb */
 ::-webkit-scrollbar-thumb:hover {
-    background: #1449c3e6; /* Cor no hover */
+    background: #1E90FF; /* Cor no hover */
 }
 
 </style>

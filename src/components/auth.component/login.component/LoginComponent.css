@@ -44,7 +44,7 @@
     z-index: 1;
     margin: 100px auto;
     padding: 50px;
-    background: #1449c3e6;
+    background: #1E90FF;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -177,7 +177,7 @@ label {
 
 input.email:not(:placeholder-shown) ~ label, input.password:focus ~ label {
     margin-top: -.7em;
-    background-color: #1449c3e6;
+    background-color: #1E90FF;
     font-size: .75em;
     animation: .5s all ease-in-out;
     margin-left: 5px;
@@ -197,7 +197,7 @@ input.password ~ label {
 
 input.password:not(:placeholder-shown) ~ label, input.password:focus ~ label {
     margin-top: -.7em;
-    background-color: #1449c3e6;
+    background-color: #1E90FF;
     font-size: .75em;
     animation: .5s all ease-in-out;
     margin-left: 5px;
@@ -227,7 +227,7 @@ input.password:focus {
 
 input.password:focus ~ label {
     margin-top: -0.7em;
-    background-color: #2e5e7b;
+    background-color: #1E90FF;
     font-size: .75em;
     animation: .5s all ease-in-out;
 }
